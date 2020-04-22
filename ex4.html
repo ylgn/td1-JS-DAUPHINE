@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>TD1 - JS- Exercice4</title>
+
+</head>
+<body>
+    <form>
+        Nom : <input type="text" id = "name" size = 15>
+        CIN : <input type="text" id = "CIN" size = 15>
+        <input type="button" name = "calculerBody" value = "Calculer" onclick="verify()">
+      </form>
+      <script>
+          var name = document.getElementById("name").value;
+          var CIN = document.getElementById("CIN").value;
+
+        function verify(){
+            if(!isEmpty()){
+                CINValide();
+            };
+        }
+
+        function isEmpty(){
+            if (name != '' && CIN != '') {
+                alert("les champs nom et CIN ne sont pas vides.");
+                return false;
+            }else if (name == '' && CIN != '') {
+                alert("le champ nom est vide.");
+                return true;
+            } else if (name != '' && CIN == '') {
+                alert("le champ CIN est vide.");
+                return true;
+            } else{
+                alert("les champs nom et CIN sont vides.");
+                return true;
+            }       
+        }
+
+        function CINValide(){
+            if (CIN.length == 8 && !isNaN(CIN)) {
+                alert("CIN OK")
+            }
+            alert("CIN KO")
+        }
+
+
+      </script>
+</body>
+</html>
+

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>TD1 - JS- Exercice6</title>
+
+</head>
+<body>
+    
+ 
+    
+    <H1>Calculatrice</H1>
+    <form id = "calculatrice">
+        <input type="text" id = "screen" size = 25>
+        <table>
+            <tr>
+                <td><input type="button" name = "sin" value = "sin" onclick="btnSin();"></td>
+                <td><input type="button" name = "cos" value = "cos" onclick="btnCos();"></td>
+                <td><input type="button" name = "log" value = "log" onclick="btnLog();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name = "1" value = "1" onclick="btn1();"></td>
+                <td><input type="button" name = "2" value = "2" onclick="btn2();"></td>
+                <td><input type="button" name = "3" value = "3" onclick="btn3();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name = "4" value = "4" onclick="btn4();"></td>
+                <td><input type="button" name = "5" value = "5" onclick="btn5();"></td>
+                <td><input type="button" name = "6" value = "6" onclick="btn6();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name = "7" value = "7" onclick="btn7();"></td>
+                <td><input type="button" name = "8" value = "8" onclick="btn8();"></td>
+                <td><input type="button" name = "9" value = "9" onclick="btn9();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name = "(" value = "(" onclick="btnBracketLeft();"></td>
+                <td><input type="button" name = "0" value = "0" onclick="btn0();"></td>
+                <td><input type="button" name = ")" value = ")" onclick="btnBracketRight();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name = "*" value = "*" onclick="btnPer();"></td>
+                <td><input type="button" name = "-" value = "-" onclick="btnLess();"></td>
+                <td><input type="button" name = "+" value = "+" onclick="btnPlus();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" name = "/" value = "/" onclick="btnDivide();"></td>
+                <td><input type="button" name = "." value = "." onclick="btnDot();"></td>
+                <td><input type="button" name = "C" value = "C" onclick="btnC();"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" name = "=" value = "=" onclick="calculate();"></td>
+                <td><input type="button" name = "E" value = "E" onclick="erase();"></td>
+            </tr>
+        </table>
+
+      </form>
+      <script>
+          var op = "";
+          document.getElementById("screen").readOnly = true; 
+
+          function btn1(){
+              op+="1";
+              document.getElementById("screen").value = op;
+          }
+          function btn2(){
+              op+="2";
+              document.getElementById("screen").value = op;
+          }
+          function btn3(){
+              op+="3";
+              document.getElementById("screen").value = op;
+          }
+          function btn4(){
+              op+="4";
+              document.getElementById("screen").value = op;
+          }
+          function btn5(){
+              op+="5";
+              document.getElementById("screen").value = op;
+          }
+          function btn6(){
+              op+="6";
+              document.getElementById("screen").value = op;
+          }
+          function btn7(){
+              op+="7";
+              document.getElementById("screen").value = op;
+          }
+          function btn8(){
+              op+="8";
+              document.getElementById("screen").value = op;
+          }
+          function btn9(){
+              op+="9";
+              document.getElementById("screen").value = op;
+          }
+          function btn0(){
+              op+="0";
+              document.getElementById("screen").value = op;
+          }
+          function btnPer(){
+              op+="*";
+              document.getElementById("screen").value = op;
+          }
+          function btnLess(){
+              op+="-";
+              document.getElementById("screen").value = op;
+          }
+          function btnPlus(){
+              op+="+";
+              document.getElementById("screen").value = op;
+          }
+          function btnDivide(){
+              op+="/";
+              document.getElementById("screen").value = op;
+          }
+          function btnDot(){
+              op+=".";
+              document.getElementById("screen").value = op;
+          }
+          function btnDot(){
+              op+=".";
+              document.getElementById("screen").value = op;
+          }
+          function btnC(){
+              op = op.substring(0, op.length-1);
+              document.getElementById("screen").value = op;
+          }
+          function btnBracketLeft(){
+            op+="(";
+              document.getElementById("screen").value = op;
+          }
+          function btnBracketRight(){
+            op+=")";
+              document.getElementById("screen").value = op;
+          }
+          function btnSin(){
+              op+="Math.sin(";
+              document.getElementById("screen").value = op;
+          }
+          function btnCos(){
+              op+="Math.cos(";
+              document.getElementById("screen").value = op;
+          }
+          function btnLog(){
+              op+="Math.log(";
+              document.getElementById("screen").value = op;
+          }
+          function calculate(){
+              try {
+                res = eval(op); 
+                } catch (e) {
+                res = "error";
+                }
+              erase()
+              document.getElementById("screen").value = res;
+              res = "";
+          }
+        
+        function erase(){
+            document.getElementById("calculatrice").reset();
+        }
+
+        
+
+      </script>
+</body>
+</html>
+

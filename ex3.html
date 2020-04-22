@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>TD1 - JS- Exercice3</title>
+ 
+  
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("Valeur de N pour la suite de Fibonnaci ?"));
+        var x1 = 0;
+        var x2 = 1;
+
+        alert(fibonacciAvecUnFor(n,x1,x2));
+        alert(fibonacciRecursive(n))
+
+        function fibonacciAvecUnFor(n,x1,x2){
+            var tampon = 0;
+            for (let i = 0; i < n; i++) {
+                tampon = x1;
+                x1 = x2
+                x2+=tampon; 
+            }
+            return x2;
+        }
+
+        function fibonacciRecursive(n){
+            if (n <= 1){
+                return 1;
+            }else{
+                return fibonacciRecursive (n-1) + fibonacciRecursive (n-2);
+            }
+   
+}
+        
+
+    </script>
+</body>
+</html>
+

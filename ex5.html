@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>TD1 - JS- Exercice5</title>
+
+</head>
+<body>
+    <H1>Inscription</H1>
+    <form id = "Inscription">
+        Nom & Prénom: <input type="text" id = "name" size = 15>
+        <br>
+        CIN : <input type="text" id = "CIN" size = 15>
+        <br>
+        Adresse e-mail : <input type="text" id = "mail" size = 15>
+        <br>
+        <label>  Niveau :
+            <input type="radio" id = "niveau" value="secondaire" checked> Secondaire
+            <input type="radio" id = "niveau" value="universitaire"> Universitaire
+            <input type="radio" id = "niveau" value="autre"> Autre
+        </label>
+        <br>
+        <label>  Modules de formation :
+            <input type="checkbox" id = "module1" value="BUREAU" > Bureautique
+            <input type="checkbox" id = "module2" value="SERI"> SE et Réseaux info.
+            <input type="checkbox" id = "module3" value="TIC"> TIC
+        </label>
+
+
+        <br>
+        
+        <input type="button" name = "envoyer" value = "Envoyer" onclick="verify();">
+        <input type="button" name = "annuler" value = "Annuler" onclick="cancel();">
+
+      </form>
+      <script>
+          var name = document.getElementById("name").value;
+          var CIN = document.getElementById("CIN").value;
+          var mail = document.getElementById("mail").value;
+          var niveau = document.getElementById("niveau").value;
+          var module1 = document.getElementById("module1").checked;
+          var module2 = document.getElementById("module2").checked;
+          var module3 = document.getElementById("module3").checked;
+          
+
+        function verify(){
+            if (!isEmpty() && checkCNI() && checkModule() && checkMail()) {
+                alert("Inscription achevée !!");
+            }else{alert("Revoir formulaire");}
+        }
+
+        function isEmpty(){
+            if (name != '' && CIN != '' && mail) {
+                return false;
+            }
+                return true;
+        }
+
+        function checkCNI(){
+            if (CIN.length == 8 && !isNaN(CIN)) {
+               return true;
+            }
+            return false;
+        }
+
+        function checkModule(){
+            if (module1 && module2 && module3) {
+                return false;
+            }
+            return true;
+        }
+
+        function checkMail(){
+            if (mail.includes("@")) {
+                return true;
+            }
+            return false;
+        }
+        function cancel(){
+            document.getElementById("Inscription").reset();
+        }
+
+
+      </script>
+</body>
+</html>
+

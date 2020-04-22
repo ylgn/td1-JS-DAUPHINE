@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>TD1 - JS- Exercice7</title>
+
+</head>
+<body>
+    
+ 
+    
+    <H1>Tic Tac Toe</H1>
+    <form id = "jeu">
+        <table>
+            <tr>
+                <td><input type="button" id = "x1" value = " " onclick="caseBtn('x1');"></td>
+                <td><input type="button" id = "x2" value = " " onclick="caseBtn('x2')"></td>
+                <td><input type="button" id = "x3" value = " " onclick="caseBtn('x3')"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" id = "y1" value = " " onclick="caseBtn('y1');"></td>
+                <td><input type="button" id = "y2" value = " " onclick="caseBtn('y2');"></td>
+                <td><input type="button" id = "y3" value = " " onclick="caseBtn('y3');"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id = "z1" value = " " onclick="caseBtn('z1');"></td>
+                <td><input type="button" id = "z2" value = " " onclick="caseBtn('z2')"></td>
+                <td><input type="button" id = "z3" value = " " onclick="caseBtn('z3')"></td>
+            </tr>
+            
+        </table>
+
+      </form>
+      <script>
+          joueur1 = ['O', true];
+          joueur2 = ['X', false];
+          cpt = 0;
+
+          var x1 = document.getElementById("x1").value;
+            var x2 = document.getElementById("x2").value;
+            var x3 = document.getElementById("x3").value;
+            var y1 = document.getElementById("y1").value;
+            var y2 = document.getElementById("y2").value;
+            var y3 = document.getElementById("y3").value;
+            var z1 = document.getElementById("z1").value;
+            var z2 = document.getElementById("z2").value;
+            var z3 = document.getElementById("z3").value;
+
+            var combinaisonx = [x1,x2,x3];
+            var combinaisony = [y1,y2,y3];
+            var combinaisonz = [z1,z2,z3];
+            var combinaison1 = [x1,y1,z1];
+            var combinaison2 = [x2,y2,z2];
+            var combinaison3 = [x3,y3,z3];
+            var combinaisondn = [x1,y2,z3];
+            var combinaisonup = [x3,y2,z1];
+
+            var tab_combinaisons = [combinaisonx,combinaisony,combinaisonz,combinaison1,combinaison2,combinaison3,combinaisonup,combinaisondn];
+         
+        function caseBtn(indice){
+            if (joueur1[1]==true && cpt <9) {
+                document.getElementById(indice).value = joueur1[0];
+                update();
+                if(gagne){
+                    alert("joueur 1 a gagné")
+                }else{
+                    cpt ++;
+                    joueur1[1] = false;
+                    joueur2[2] = true;
+                }
+                
+            }else{
+                document.getElementById(indice).value = joueur2[0];
+                update();
+            }
+            if(gagne){
+                    alert("joueur 2 a gagné")
+                }else{
+                    cpt ++;
+                    joueur1[1] = true;
+                    joueur1[2] = false;
+                }
+            
+        }
+        
+        
+        
+        function testCombinaison(combinaison) {
+            if (combinaison[0] == combinaison[1] && combinaison[1] == combinaison[2] && combinaison[0] != " ") {
+                return true;
+            }
+            return false
+        }
+
+        function gagne(){
+            for (let index = 0; index < tab_combinaisons.length; index++) {
+                if (testCombinaison(tab_combinaisons[index])){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function update(){
+            var x1 = document.getElementById("x1").value;
+            var x2 = document.getElementById("x2").value;
+            var x3 = document.getElementById("x3").value;
+            var y1 = document.getElementById("y1").value;
+            var y2 = document.getElementById("y2").value;
+            var y3 = document.getElementById("y3").value;
+            var z1 = document.getElementById("z1").value;
+            var z2 = document.getElementById("z2").value;
+            var z3 = document.getElementById("z3").value;
+
+            var combinaisonx = [x1,x2,x3];
+            var combinaisony = [y1,y2,y3];
+            var combinaisonz = [z1,z2,z3];
+            var combinaison1 = [x1,y1,z1];
+            var combinaison2 = [x2,y2,z2];
+            var combinaison3 = [x3,y3,z3];
+            var combinaisondn = [x1,y2,z3];
+            var combinaisonup = [x3,y2,z1];
+
+            var tab_combinaisons = [combinaisonx,combinaisony,combinaisonz,combinaison1,combinaison2,combinaison3,combinaisonup,combinaisondn];
+
+        }
+
+
+
+        function test(){
+            for (let index = 0; index < tab_combinaisons.length; index++) {
+            if (testCombinaison(tab_combinaisons[index])){
+                alert("ok");
+            }
+            alert("ko")
+        }
+
+        }
+        
+        
+          
+
+        
+
+      </script>
+</body>
+</html>
+

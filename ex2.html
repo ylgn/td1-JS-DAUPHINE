@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>TD1 - JS- Exercice2</title>
+  <form>
+    DC1 : <input type="text" id = "DC1" size = 5>
+    SC2 : <input type="text" id = "DC2" size = 5>
+    DC3 : <input type="text" id = "DC3" size = 5>
+    <input type="button" name = "calculer" value = "Calculer" onclick="moyenne()">
+  </form>
+  <script>
+      function moyenne(){
+        var x1 = parseInt(document.getElementById("DC1").value);
+        var x2 = parseInt(document.getElementById("DC2").value);
+        var x3 = parseInt(document.getElementById("DC3").value);
+        res = (x1 + x2 + x3) / 3;
+        alert(res);
+        window.document.writeln(res);
+      }
+      
+  </script>
+</head>
+<body>
+    <form>
+        DC1 : <input type="text" id = "DC3" size = 5>
+        SC2 : <input type="text" id = "DC4" size = 5>
+        DC3 : <input type="text" id = "DC5" size = 5>
+        <input type="button" name = "calculerBody" value = "Calculer" onclick="moyenneBody()">
+      </form>
+      <script>
+          function moyenneBody(){
+            var x1 = (document.getElementById("DC3").value);
+            var x2 = (document.getElementById("DC4").value);
+            var x3 = (document.getElementById("DC5").value);
+            res = (x1 + x2 + x3) / 3;
+            alert(res);
+            window.document.writeln(res);
+          }          
+      </script>
+</body>
+</html>
+
